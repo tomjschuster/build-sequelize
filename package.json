@@ -17,8 +17,14 @@
   "scripts": {
     "build": "rimraf dist && NODE_ENV=development webpack --mode=development",
     "watch": "NODE_ENV=development webpack --mode=development --watch",
-    "start": "npm run build &&   NODE_ENV=development live-server ./dist & npm run watch",
-    "deploy": "rimraf dist && NODE_ENV=production webpack --mode=production"
+    "start": "npm run build && NODE_ENV=development live-server ./dist & npm run watch",
+    "deploy": "rimraf dist && NODE_ENV=production webpack --mode=production",
+    "start.ts": "webpack-dev-server --hot --open --overlay --config webpack.ts.config.js",
+    "build.ts": "webpack --mode production --config webpack.ts.config.js",
+    "types.check": "tsc",
+    "lint": "tslint --project tsconfig.json",
+    "format": "prettier 'ts/**/*.{ts,tsx}' --write",
+    "postinstall": "rm -rf node_modules/@types/react-native"
   },
   "keywords": [
     "sequelize",
@@ -31,27 +37,27 @@
     "code generator"
   ],
   "browserslist": [
-    "defaults"
+    "defaults",
+    "not IE 11",
+    "not IE_Mob 11",
+    "maintained node versions"
   ],
-  "standard": {
-    "parser": "babel-eslint",
-    "globals": [
-      "Blob",
-      "localStorage",
-      "location"
-    ]
-  },
   "dependencies": {
     "@babel/core": "^7.4.4",
     "@babel/plugin-proposal-class-properties": "^7.4.4",
     "@babel/preset-env": "^7.4.4",
     "@babel/preset-react": "^7.0.0",
     "@fortawesome/fontawesome-free": "^5.8.2",
+    "@types/react": "^16.9.17",
+    "@types/react-dom": "^16.9.4",
+    "@types/react-redux": "^7.1.5",
+    "@types/styled-components": "^4.4.2",
     "autoprefixer": "^9.5.1",
     "babel-loader": "^8.0.6",
-    "case": "^1.6.1",
+    "case": "^1.6.2",
+    "clean-webpack-plugin": "^3.0.0",
     "copy-to-clipboard": "^3.2.0",
-    "copy-webpack-plugin": "^5.0.3",
+    "copy-webpack-plugin": "^5.1.1",
     "core-js": "^3.2.1",
     "css-loader": "^2.1.1",
     "file-loader": "^3.0.1",
@@ -65,22 +71,28 @@
     "postcss-loader": "^3.0.0",
     "prismjs": "^1.16.0",
     "prop-types": "^15.7.2",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
     "regenerator-runtime": "^0.13.2",
     "rimraf": "^2.6.3",
     "robotstxt-webpack-plugin": "^5.0.0",
     "sitemap-webpack-plugin": "^0.6.0",
+    "styled-components": "^4.4.1",
+    "ts-loader": "^6.2.1",
+    "typescript": "^3.7.4",
     "url-loader": "^1.1.2",
     "uuid": "^3.3.3",
-    "webpack": "^4.31.0",
-    "webpack-cli": "^3.3.2",
+    "webpack": "^4.41.0",
+    "webpack-cli": "^3.3.10",
     "xregexp": "^4.2.4"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.1",
-    "prettier": "^1.17.1",
-    "standard": "^12.0.1"
+    "prettier": "^1.19.1",
+    "tslint": "^5.20.1",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-react": "^4.1.0",
+    "webpack-dev-server": "^3.10.1"
   },
   "engines": {
     "node": ">=6.0.0 < 12.0"

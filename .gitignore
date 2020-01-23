@@ -1,9 +1,6 @@
-# webpack-output / live-server location
-dist
-.todo
 
-# Created by https://www.gitignore.io/api/vim,node,linux,macos,windows,sublimetext,visualstudiocode
-# Edit at https://www.gitignore.io/?templates=vim,node,linux,macos,windows,sublimetext,visualstudiocode
+# Created by https://www.gitignore.io/api/vim,node,react,linux,macos,windows,sublimetext
+# Edit at https://www.gitignore.io/?templates=vim,node,react,linux,macos,windows,sublimetext
 
 ### Linux ###
 *~
@@ -71,6 +68,7 @@ lib-cov
 
 # Coverage directory used by tools like istanbul
 coverage
+*.lcov
 
 # nyc test coverage
 .nyc_output
@@ -93,6 +91,9 @@ jspm_packages/
 
 # TypeScript v1 declaration files
 typings/
+
+# TypeScript cache
+*.tsbuildinfo
 
 # Optional npm cache directory
 .npm
@@ -122,6 +123,18 @@ typings/
 # nuxt.js build output
 .nuxt
 
+# rollup.js default build output
+dist/
+
+# Uncomment the public line if your project uses Gatsby
+# https://nextjs.org/blog/next-9-1#public-directory-support
+# https://create-react-app.dev/docs/using-the-public-folder/#docsNav
+# public
+
+# Storybook build outputs
+.out
+.storybook-out
+
 # vuepress build output
 .vuepress/dist
 
@@ -133,6 +146,23 @@ typings/
 
 # DynamoDB Local files
 .dynamodb/
+
+# Temporary folders
+tmp/
+temp/
+
+### react ###
+.DS_*
+**/*.backup.*
+**/*.back.*
+
+node_modules
+
+*.sublime*
+
+psd
+thumb
+sketch
 
 ### SublimeText ###
 # Cache files for Sublime Text
@@ -176,28 +206,24 @@ GitHub.sublime-settings
 
 # Session
 Session.vim
+Sessionx.vim
 
 # Temporary
 .netrwhist
+
 # Auto-generated tag files
 tags
+
 # Persistent undo
 [._]*.un~
 
-### VisualStudioCode ###
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
-
-### VisualStudioCode Patch ###
-# Ignore all local history of files
-.history
+# Coc configuration directory
+.vim
 
 ### Windows ###
 # Windows thumbnail cache files
 Thumbs.db
+Thumbs.db:encryptable
 ehthumbs.db
 ehthumbs_vista.db
 
@@ -220,4 +246,4 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
-# End of https://www.gitignore.io/api/vim,node,linux,macos,windows,sublimetext,visualstudiocode
+# End of https://www.gitignore.io/api/vim,node,react,linux,macos,windows,sublimetext
