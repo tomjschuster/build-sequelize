@@ -1,9 +1,10 @@
-const path = require('path')
-const webpack = require('webpack')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+import path from 'path'
+import webpack, { CliConfigOptions, Configuration, ConfigurationFactory } from 'webpack'
 
-module.exports = (env, options) => ({
+import { CleanWebpackPlugin } from 'clean-webpack-plugin'
+import HtmlWebpackPlugin from 'html-webpack-plugin'
+
+const config: ConfigurationFactory = (env, options: CliConfigOptions): Configuration => ({
   entry: ['./ts/index'],
   output: {
     path: path.join(__dirname, 'dist'),
@@ -34,3 +35,5 @@ module.exports = (env, options) => ({
     }),
   ],
 })
+
+export default config
