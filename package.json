@@ -24,7 +24,9 @@
     "types.check": "tsc",
     "lint": "tslint --project tsconfig.json",
     "format": "prettier 'ts/**/*.{ts,tsx}' --write",
-    "postinstall": "rm -rf node_modules/@types/react-native"
+    "postinstall": "rm -rf node_modules/@types/react-native",
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "keywords": [
     "sequelize",
@@ -87,8 +89,14 @@
     "xregexp": "^4.2.4"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^5.0.2",
+    "@testing-library/react": "^9.4.0",
+    "@types/jest": "^24.9.0",
+    "@types/react-test-renderer": "^16.9.2",
     "babel-eslint": "^10.0.1",
+    "jest": "^25.1.0",
     "prettier": "^1.19.1",
+    "ts-jest": "^24.3.0",
     "tslint": "^5.20.1",
     "tslint-config-prettier": "^1.18.0",
     "tslint-react": "^4.1.0",
